@@ -1,0 +1,119 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: rgb(225, 225, 225);
+}
+
+.logo img {
+  width: 300px;
+  background-color: transparent;
+}
+
+.header {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+}
+
+.header > div {
+  background-color: white;
+}
+
+.head_a {
+  background-color: transparent;
+}
+
+button:hover {
+  background-color: rgb(178, 185, 180);
+  cursor: pointer;
+}
+
+.logo img {
+  width: 300px;
+  background-color: transparent;
+}
+
+/*회원가입폼디자인*/
+section.join_form {
+  background-color: white;
+  width: 400px;
+  height: 500px;
+  border-radius: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+section.join_form h1 {
+  font-size: 35px;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 0px;
+}
+
+.id_pw {
+  width: 380px;
+  position: relative;
+  padding: 5px;
+  left: 3px;
+  margin-top: 10px;
+}
+
+.id_pw input {
+  width: 100%;
+  height: 50px;
+  font-size: 25px;
+  outline: none;
+}
+
+.id_pw label {
+  position: absolute;
+  left: 10px;
+  top: 22.5px;
+  font-size: 15px;
+  color: darkgrey;
+  transition: 0.3s;
+}
+
+.id_pw input:focus + label {
+  /*인풋에 포커스 되면 레이블이 어떻게 반응을 하는지에 대해서*/
+  font-size: 10px;
+}
+
+.id_pw input:valid + label {
+  color: transparent;
+}
+
+.btn_area {
+  width: 380px;
+  padding-left: 1.5px;
+}
+
+.log_btn {
+  width: 100%;
+  height: 50px;
+  margin-left: 7px; /*로그인 폼이랑 크기는 같고 왼쪽 마진을 0으로 줘도 왜 안 맞는지 모르겠음->패딩이 있어서*/
+  background-color: rgb(63, 147, 74);
+  color: white;
+  font-size: 20px;
+  border: 0;
+  padding: 5px;
+  margin-top: 20px;
+}
+
+.join_info {
+  width: 380px;
+  margin-left: 7px;
+  border: 0;
+  padding: 5px;
+  margin-bottom: 10px;
+}

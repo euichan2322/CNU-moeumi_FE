@@ -1,6 +1,6 @@
 /*
 async function getData() {
-  const response = await fetch('http://152.67.222.171:5000/api/alarm', {
+  const response = await fetch('http://.../api/alarm', {
     method: 'GET',
   });
 
@@ -73,7 +73,9 @@ displayData();
 */
 
 async function getData() {
-  const response = await fetch('http://152.67.222.171:5000/api/alarm', {
+
+  const response = await fetch('http://.../api/alarm', {
+
     method: 'GET',
   });
 

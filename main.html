@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.ico" />
     <link rel="stylesheet" href="main.css" />
     <title>메인페이지</title>
   </head>
@@ -14,19 +15,25 @@
         </div>
         <nav class="menu">
           <div>
-            <a class="head_a" href="like.html"
-              ><button class="head_btn_like">추 천</button></a
+            <button
+              class="head_btn_like"
+              id="head_like"
+              onclick="location.href='like.html'"
             >
+              추 천
+            </button>
           </div>
           <div>
-            <a class="head_a" href="my.html"
-              ><button class="head_btn">마이페이지</button></a
+            <button
+              class="head_btn"
+              id="head_my"
+              onclick="location.href='my.html'"
             >
+              마이페이지
+            </button>
           </div>
           <div>
-            <a class="head_a" href="login.html"
-              ><button class="head_btn">로그인</button></a
-            >
+            <button class="head_btn" id="head_log">로그인</button>
           </div>
         </nav>
       </div>
@@ -50,5 +57,6 @@
     </script>-->
 
     <script src="main.js"></script>
+    <script src="loginstatus.js"></script>
   </body>
 </html>

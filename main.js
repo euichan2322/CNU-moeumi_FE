@@ -73,7 +73,9 @@ displayData();
 */
 
 async function getData() {
+
   const response = await fetch('http://.../api/alarm', {
+
     method: 'GET',
   });
 

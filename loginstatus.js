@@ -1,7 +1,7 @@
-//세션확인,로그인유지
+//세션확인,로그인유지 --> 아직 잘 모르겠음 추후 변경경
 async function checkSession() {
   try {
-    const response = await fetch('http://백엔드주소/user/session', {
+    const response = await fetch('http://백엔드주소/users/session', {
       method: 'GET',
       credentials: 'include', // 세션 쿠키 포함해야
     });
@@ -18,7 +18,7 @@ async function checkSession() {
   }
 }
 
-//로그인버튼 로그아웃버튼으로 바뀌는거
+//로그인버튼 로그아웃버튼으로 바뀌는 함수수
 function changeUI(account_id) {
   const loginBtn = document.getElementById('head_log');
 
@@ -34,17 +34,21 @@ function changeUI(account_id) {
 //로그아웃함수(로그인페이지 제외)
 async function logout() {
   try {
-    const response = await fetch('http://백엔드주소/user/logout', {
+    const response = await fetch('http://백엔드주소/users/logout', {
       method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ account_id }),
       credentials: 'include',
     });
 
-    if (!response.ok) {
+    const data = await response.json();
+
+    if (!response.ok || data.success !== 'true') {
       throw new Error('로그아웃 실패');
     }
 
     changeUI(null);
-    alert('로그아웃 되었습니다.');
+    alert(`${data.message}`);
     window.location.href = 'main.html';
   } catch (error) {
     alert('로그아웃 중 오류가 발생했습니다.');

@@ -1,0 +1,162 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: rgb(225, 225, 225);
+}
+
+.logo img {
+  width: 300px;
+  background-color: transparent;
+}
+
+.header {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+}
+
+.header > div {
+  background-color: white;
+}
+
+.menu li {
+  list-style: none;
+}
+
+.head_btn {
+  width: 110px;
+  height: 30px;
+  background-color: rgb(63, 147, 74);
+  border-radius: 15px;
+  border: none;
+  color: white;
+  font-size: 15px;
+}
+
+.head_btn_like {
+  width: 110px;
+  height: 30px;
+  background-color: palevioletred;
+  border-radius: 15px;
+  border: none;
+  color: white;
+  font-size: 15px;
+}
+
+button:hover {
+  background-color: rgb(178, 185, 180);
+  cursor: pointer;
+}
+
+.menu {
+  display: flex;
+  gap: 15px;
+  background-color: white;
+  align-items: center; /*버튼을 가운데 두고 싶어서*/
+  padding-right: 20px;
+}
+
+.menu div {
+  background-color: transparent;
+}
+
+.logo img {
+  width: 300px;
+  background-color: transparent;
+}
+
+/*헤더디자인*/
+
+/*즐겨찾기 박스*/
+.select_box {
+  padding: 20px;
+  width: 1000px;
+  height: 600px;
+  margin: 100px auto;
+  background-color: white;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.username_div {
+  width: 900px;
+  height: 60px;
+  background-color: rgb(226, 255, 255);
+}
+
+.category_div {
+  width: 900px;
+  height: 380px;
+  display: flex;
+  margin-left: 120px;
+}
+
+.btn_div {
+  width: 900px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.save_btn {
+  width: 250px;
+  height: 50px;
+  margin-left: 7px; /*로그인 폼이랑 크기는 같고 왼쪽 마진을 0으로 줘도 왜 안 맞는지 모르겠음->패딩이 있어서*/
+  background-color: rgb(63, 147, 74);
+  color: white;
+  font-size: 25px;
+  border: 0;
+  padding: 5px;
+  margin-top: 0px;
+}
+
+h3 {
+  color: red;
+}
+
+.buis {
+  width: 450px;
+  height: 420px;
+  display: flex;
+  flex-direction: column;
+}
+
+.notice {
+  width: 450px;
+  height: 420px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  height: 30px;
+  font-size: 23px;
+  font-weight: 600;
+}
+
+.buis_like {
+  width: 450px;
+  height: 390px;
+  font-size: 23px;
+}
+
+.notice_like {
+  width: 450px;
+  font-size: 23px;
+}
+
+.star {
+  margin-top: 0px;
+}
+
+.star:hover {
+  cursor: pointer;
+}

@@ -1,88 +1,18 @@
-/*
+import { config } from './config.js';
+
 async function getData() {
-  const response = await fetch('http://.../api/alarm', {
-    method: 'GET',
-  });
-
-  const data = await response.json();
-  return data;
-}
-
-async function show() {
-  const box = document.createElement('div');
-
-  box.style.backgroundColor = 'white';
-  box.style.width = '500px';
-  box.style.height = '300px';
-  box.style.margin = '30px';
-  box.style.borderRadius = '10px';
-
-  document.body.appendChild(box);
-
-  const data = await getData();
-  data.array.forEach((item) => {
-    const alarmitem = document.createElement('li');
-    alarmitem.textContent = item.title;
-    box.appendChild(alarmitem);
-  });
-}
-
-show();
-
-async function displayData() {
-  const box = document.createElement('div');
-
-  box.style.backgroundColor = 'white';
-  box.style.width = '450px';
-  box.style.height = '400px';
-  box.style.margin = '30px';
-  box.style.borderRadius = '10px';
-
-  document.body.appendChild(box);
-
   try {
-    const data = await getData();
-
-    data.response.forEach((group) => {
-      const groupTitle = document.createElement('h3');
-      groupTitle.textContent = group.business_group_name;
-      groupTitle.style.marginTop = '10px';
-      box.appendChild(groupTitle);
-
-      group.alarm.forEach((alarm) => {
-        const alarmItem = document.createElement('li');
-        alarmItem.textContent = alarm.title;
-        alarmItem.style.listStyleType = 'none';
-
-        alarmItem.addEventListener('click', () => {
-          window.open(alarm.url, '_blank');
-        });
-
-        box.appendChild(alarmItem);
-      });
+    const response = await fetch(config.serverURL + 'alarm', {
+      method: 'GET',
     });
+
+    const data = await response.json();
+    return data;
   } catch (error) {
-    console.error('데이터를 가져오는 중 오류 발생:', error);
-    const errorItem = document.createElement('li');
-    errorItem.textContent = '데이터를 로드할 수 없습니다. ㅠㅠ';
-    box.appendChild(errorItem);
+    console.error('getData 오류 :', error);
   }
 }
 
-displayData();
-*/
-
-async function getData() {
-
-  const response = await fetch('http://.../api/alarm', {
-
-    method: 'GET',
-  });
-
-  const data = await response.json();
-  return data;
-}
-/*여기서 에러처리가 꼭 필요할까? */
 
 async function displayData() {
   const container = document.createElement('div');
@@ -125,7 +55,7 @@ async function displayData() {
         const [datePart, timepart] = alarm.timestamp.split(' ');
         const [year, month, day] = datePart.split('-');
 
-        //날짜 전체 테두리 같은거 + 알람 테두리리
+        //날짜 전체 테두리 같은거 + 알람 테두리
         const alarmItem = document.createElement('li');
         alarmItem.style.display = 'flex';
         alarmItem.style.justifyContent = 'space-between';
@@ -189,14 +119,32 @@ async function displayData() {
       moreButton.style.cursor = 'pointer';
       moreButton.style.padding = '5px 0';
       moreButton.addEventListener('click', () => {
-        alert(`${group.business_group_name}의 더 많은 공지사항을 보세요!`); //데이터 추가해주며 그때 수정
+        if (groupTitle.textContent == '소프트웨어중심대학사업단') {
+          window.open(config.sojoong, '_blank');
+        } else if (groupTitle.textContent == '인공지능혁신융합대학사업단') {
+          window.open(config.inhyuck, '_blank');
+        } else if (groupTitle.textContent == '차세대통신혁신융합대학사업단') {
+          window.open(config.chahyuck, '_blank');
+        } else if (groupTitle.textContent == 'EnergyAI핵심인재양선교육연구단') {
+          window.open(config.EAI, '_blank');
+        } else if (groupTitle.textContent == '전남대 포털 공지사항') {
+          window.open(config.potal, '_blank');
+        } else if (groupTitle.textContent == '학사 안내') {
+          window.open(config.haksa, '_blank');
+        } else if (groupTitle.textContent == '장학 안내') {
+          window.open(config.janghack, '_blank');
+        } else if (groupTitle.textContent == '취업 안내') {
+          window.open(config.chjin, '_blank');
+        } else {
+          alert('지원하지 않습니다');
+        }
       });
 
       box.appendChild(moreButton);
       container.appendChild(box);
     });
   } catch (error) {
-    console.error('데이터를 표시하는 중 오류 발생:', error);
+    console.error('displayData 오류:', error);
   }
 }
 

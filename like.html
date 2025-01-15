@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="like.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header">
+        <div class="logo">
+          <a href="main.html"><img src="h_logo.jpg" alt="h_logo" /></a>
+        </div>
+        <nav class="menu">
+          <div>
+            <button
+              class="head_btn_like"
+              id="head_like"
+              onclick="location.href='like.html'"
+            >
+              추 천
+            </button>
+          </div>
+          <div>
+            <button
+              class="head_btn"
+              id="head_my"
+              onclick="location.href='my.html'"
+            >
+              마이페이지
+            </button>
+          </div>
+          <div>
+            <button class="head_btn" id="head_log">로그인</button>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="ai_box" id="ai_box">
+        <div class="letter">
+          ♥️ 좋아요 기반 AI 추천 - 추천 버튼을 누르면 태그 기반 AI 추천을 받아
+          보실 수 있습니다.
+        </div>
+        <div class="btn_bar" id="btn_bar"></div>
+        <div class="ai_btn_box">
+          <button class="ai_btn" id="공학">공학</button>
+          <button class="ai_btn" id="보건">보건</button>
+          <button class="ai_btn" id="정치">정치</button>
+          <button class="ai_btn" id="경제">경제</button>
+          <button class="ai_btn" id="언론">언론</button>
+          <button class="ai_btn" id="창업">창업</button>
+          <button class="ai_btn" id="봉사">봉사</button>
+          <button class="ai_btn" id="환경">환경</button>
+        </div>
+        <button class="like_btn" id="like_btn">추 천</button>
+      </div>
+    </main>
+
+    <script type="module" src="like.js"></script>
+  </body>
+</html>

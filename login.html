@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="login.css" />
+    <title>로그인페이지</title>
+  </head>
+  <body>
+    <header>
+      <div class="header">
+        <div class="logo">
+          <a href="main.html"><img src="h_logo.jpg" alt="h_logo" /></a>
+        </div>
+      </div>
+    </header>
+    <section class="login-form">
+      <h1 class="login">LOGIN</h1>
+      <form id="loginform" method="post" action="http://백엔드주소/user/login">
+        <div class="id-pw-area">
+          <div class="id-pw">
+            <input type="text" name="account_id" id="id" required />
+            <label for="id">아이디 (@jnu.ac.kr)</label>
+          </div>
+          <div class="id-pw">
+            <input type="password" name="password" id="password" required />
+            <label for="password">비밀번호</label>
+          </div>
+        </div>
+      </form>
+      <div class="btn-area">
+        <button class="log_btn" type="submit" id="btn">로그인</button>
+      </div>
+      <div class="join-find">
+        <a href="join.html">회원가입</a>
+        <a href="#">비밀번호 찾기</a>
+      </div>
+    </section>
+    <!--<script>
+      function idpw() {
+        const id = document.getElementById('id').value;
+        const password=document.getElementById('password').value;
+        alert(`id: ${id}\n pw: ${password}`);
+      }
+      const el = document.getElementById('btn');
+      el.addEventListener('click', idpw);
+    </script>-->
+    <script src="login.js"></script>
+  </body>
+</html>

@@ -16,6 +16,7 @@ async function checkSession() {
     changeUI(data.accounId);
   } catch (error) {
     changeUI(null); // 로그인 되지 않았을때
+
     console.log('세션 없음');
   }
 }

@@ -64,20 +64,4 @@ button:hover {
   background-color: transparent;
 }
 
-.logo img {
-  width: 300px;
-  background-color: transparent;
-}
-
 /*헤더디자인*/
-
-/*과제
-.button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100px;
-  height: 80px;
-}
-*/

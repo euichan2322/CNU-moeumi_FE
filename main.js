@@ -2,7 +2,7 @@ import { config } from './config.js';
 
 async function getData() {
   try {
-    const response = await fetch(config.serverURL + 'alarm', {
+    const response = await fetch('http://152.67.222.171:5000/api/alarm', {
       method: 'GET',
     });
 
@@ -21,6 +21,7 @@ async function displayData() {
     'wrap'; /*자식 요소들이 컨테이너를 벗어날 때 다음 줄로 자동으로 넘겨줌*/
   container.style.gap = '20px';
   container.style.padding = '20px';
+  container.style.paddingLeft = '45px';
   document.body.appendChild(container);
 
   try {
@@ -30,7 +31,7 @@ async function displayData() {
       /*foreach는 배열을 순회하는 매서드, 반복문이지만 값을 반환하지 않는 것이 특징! */
       const box = document.createElement('div');
       box.style.backgroundColor = 'white';
-      box.style.width = '400px';
+      box.style.width = '450px';
       box.style.margin = '20px';
       box.style.borderRadius = '10px';
       box.style.padding = '15px';
@@ -102,9 +103,28 @@ async function displayData() {
           window.open(alarm.url, '_blank'); // URL 새 창 열기
         });
 
-        alarmItem.appendChild(dateContainer);
-        alarmItem.appendChild(titleElement);
-        alarmList.appendChild(alarmItem);
+        if (true) {
+          //로그인상태일때 상태코드
+          const heartButton = document.createElement('div');
+          heartButton.innerHTML = config.heart;
+          heartButton.style.color = 'grey';
+          heartButton.style.cursor = 'pointer';
+          heartButton.style.marginLeft = '10px';
+
+          heartButton.addEventListener('click', () => {
+            bookmark(group.business_group_id, alarm.alarm_id, heartButton);
+          });
+
+          alarmItem.appendChild(dateContainer);
+          alarmItem.appendChild(titleElement);
+          alarmItem.appendChild(heartButton);
+          alarmList.appendChild(alarmItem);
+        } else {
+          //로그인이 아닐때 상태코드
+          alarmItem.appendChild(dateContainer);
+          alarmItem.appendChild(titleElement);
+          alarmList.appendChild(alarmItem);
+        }
       });
 
       box.appendChild(alarmList);
@@ -127,7 +147,7 @@ async function displayData() {
           window.open(config.chahyuck, '_blank');
         } else if (groupTitle.textContent == 'EnergyAI핵심인재양선교육연구단') {
           window.open(config.EAI, '_blank');
-        } else if (groupTitle.textContent == '전남대 포털 공지사항') {
+        } else if (groupTitle.textContent == '포털 공지사항') {
           window.open(config.potal, '_blank');
         } else if (groupTitle.textContent == '학사 안내') {
           window.open(config.haksa, '_blank');
@@ -149,3 +169,31 @@ async function displayData() {
 }
 
 displayData();
+
+//게시글 좋아요(북마크)함수
+async function bookmark(business_group_id, alarm_id, heartButton) {
+  try {
+    const response = await fetch(config.serverURL + '/api/bookmarks/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        business_group_id: business_group_id,
+        alarm_id: alarm_id,
+      }),
+    });
+
+    const result = await response.json();
+    if (result.ok) {
+      let path = heartButton.querySelector('path');
+      let currentFill = path.getAttribute('fill');
+      path.setAttribute('fill', currentFill === 'red' ? 'none' : 'red');
+      alert(`${result.message}`);
+    } else {
+      alert('북마크 등록에 실패했습니다.');
+    }
+  } catch (error) {
+    console.error('서버 오류:', error);
+  }
+}

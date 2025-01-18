@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="login.css" />
+    <title>로그인페이지</title>
+  </head>
+  <body>
+    <header>
+      <div class="header">
+        <div class="logo">
+          <a href="main.html"><img src="h_logo.png" alt="h_logo" /></a>
+        </div>
+      </div>
+    </header>
+    <section class="login-form">
+      <h1 class="login">LOGIN</h1>
+      <form
+        id="loginform"
+        method="post"
+        action="http://http://152.67.222.171:8080/api/users/login"
+      >
+        <div class="id-pw-area">
+          <div class="id-pw">
+            <input type="text" name="accountId" id="accountId" required />
+            <label for="accountId">아이디</label>
+          </div>
+          <div class="id-pw">
+            <input type="password" name="password" id="password" required />
+            <label for="password">비밀번호</label>
+          </div>
+        </div>
+      </form>
+      <div class="btn-area">
+        <button class="log_btn" type="submit" id="btn">로그인</button>
+      </div>
+      <div class="join-find">
+        <a href="join.html">회원가입</a>
+        <!--<a href="#">비밀번호 찾기</a>-->
+      </div>
+    </section>
+    <script type="module" src="login.js"></script>
+  </body>
+</html>

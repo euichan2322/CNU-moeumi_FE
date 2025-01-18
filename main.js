@@ -13,6 +13,7 @@ async function getData() {
   }
 }
 
+
 async function displayData() {
   const container = document.createElement('div');
   container.style.display = 'flex';

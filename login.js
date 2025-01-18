@@ -28,6 +28,7 @@ async function login(accountId, pw) {
     }
 
     alert(`반갑습니다, ${accountId} 님`);
+    alert(`반갑습니다, ${accountId} 님`);
     window.location.href = 'main.html';
   } catch (error) {
     console.log('서버 오류', error);
@@ -42,3 +43,5 @@ loginbtn.addEventListener('click', function (event) {
   const pw = document.getElementById('password').value;
   login(accountId, pw);
 });
+
+//..

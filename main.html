@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="main.css" />
+    <title>메인페이지</title>
+  </head>
+  <body>
+    <header>
+      <div class="header">
+        <div class="logo">
+          <a href="main.html"><img src="h_logo.png" alt="h_logo" /></a>
+        </div>
+        <nav class="menu">
+          <div>
+            <button
+              class="head_btn_like"
+              id="head_like"
+              onclick="location.href='like.html'"
+            >
+              추 천
+            </button>
+          </div>
+          <div>
+            <button
+              class="head_btn"
+              id="head_my"
+              onclick="location.href='my.html'"
+            >
+              마이페이지
+            </button>
+          </div>
+          <div>
+            <button class="head_btn" id="head_log">로그인</button>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <script type="module" src="main.js"></script>
+    <script type="module" src="loginstatus.js"></script>
+  </body>
+</html>

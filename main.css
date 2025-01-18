@@ -1,0 +1,67 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: rgb(225, 225, 225);
+}
+
+.logo img {
+  width: 300px;
+  background-color: transparent;
+}
+
+.header {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+}
+
+.header > div {
+  background-color: white;
+}
+
+.menu li {
+  list-style: none;
+}
+
+.head_btn {
+  width: 110px;
+  height: 30px;
+  background-color: rgb(63, 147, 74);
+  border-radius: 15px;
+  border: none;
+  color: white;
+  font-size: 15px;
+}
+
+.head_btn_like {
+  width: 110px;
+  height: 30px;
+  background-color: palevioletred;
+  border-radius: 15px;
+  border: none;
+  color: white;
+  font-size: 15px;
+}
+
+button:hover {
+  background-color: rgb(178, 185, 180);
+  cursor: pointer;
+}
+
+.menu {
+  display: flex;
+  gap: 15px;
+  background-color: white;
+  align-items: center; /*버튼을 가운데 두고 싶어서*/
+  padding-right: 20px;
+}
+
+.menu div {
+  background-color: transparent;
+}
+
+/*헤더디자인*/

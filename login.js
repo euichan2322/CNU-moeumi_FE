@@ -22,8 +22,6 @@ async function login(accountId, pw) {
 
     const data = await response.json();
 
-    console.log(`${data.message}, ${data.cookie}`); //지우기
-
     if (!response.ok) {
       alert(`${data.message}`);
       throw new Error('로그인 실패함');

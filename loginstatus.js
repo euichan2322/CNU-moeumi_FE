@@ -1,36 +1,15 @@
 import { config } from './config.js';
 
-//세션확인,로그인유지 --> 아직 잘 모르겠음 추후 변경
-async function checkSession() {
-  try {
-    const response = await fetch('http://백엔드주소/users/session', {
-      method: 'GET',
-      credentials: 'include', // 세션 쿠키 포함해야
-    });
-
-    if (!response.ok) {
-      throw new Error('세션 없음');
-    }
-
-    const data = await response.json();
-    changeUI(data.accounId);
-  } catch (error) {
-    changeUI(null); // 로그인 되지 않았을때
-
-    console.log('세션 없음');
-  }
-}
-
 //로그인버튼 로그아웃버튼으로 바뀌는 함수
-function changeUI(accountId) {
+function changeUI() {
   const loginBtn = document.getElementById('head_log');
 
-  if (accountId) {
-    loginBtn.textContent = '로그아웃';
-    loginBtn.onclick = logout;
-  } else {
+  if (!login) {
     loginBtn.textContent = '로그인';
     loginBtn.onclick = () => (window.location.href = 'login.html'); //화살표함수
+  } else {
+    loginBtn.textContent = '로그아웃';
+    loginBtn.onclick = logout;
   }
 }
 
@@ -55,7 +34,7 @@ async function logout() {
       throw new Error('로그아웃 실패');
     }
 
-    changeUI(null);
+    changeUI();
     alert(`${data.message}`);
     window.location.href = 'main.html';
   } catch (error) {
@@ -64,7 +43,9 @@ async function logout() {
 }
 
 //코드 실행
-const loginBtn = document.getElementById('head_log');
+
+/*const loginBtn = document.getElementById('head_log');
 loginBtn.addEventListener('click', async function () {
   await logout();
 });
+*/
